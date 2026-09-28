@@ -1,0 +1,129 @@
+"""
+FastAPI application entry point for the ASD Framework Web Application.
+
+This is a THIN presentation layer on top of the frozen asd_mcda v1.0.0 computational engine.
+All scientific calculations are performed by importing asd_mcda directly.
+
+Usage:
+    python -m backend.main
+    # or
+    uvicorn backend.main:app --reload --port 8000
+"""
+
+import sys
+from pathlib import Path
+
+# Ensure the project root is in sys.path so asd_mcda and backend can be imported
+PROJECT_ROOT = Path(__file__).parent.parent.resolve()
+SRC_DIR = PROJECT_ROOT / "src"
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+if str(SRC_DIR) not in sys.path:
+    sys.path.insert(0, str(SRC_DIR))
+
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
+
+from backend.api import drugs, polymers, screening, history
+from backend.services.engine_adapter import (
+    get_engine_version,
+    get_package_version,
+    get_methodology_version,
+)
+
+app = FastAPI(
+    title="PharmaPolySCOPE API",
+    description=(
+        "Pharmaceutical Polymer Screening and Computational Optimization Platform API. "
+        "A Four-Criterion Computational Framework for Rational Polymer Selection in Amorphous Solid Dispersions. "
+        "Active computational engine: v" + get_engine_version() + " (" + get_methodology_version() + "). "
+        "Package/API anchor: v" + get_package_version() + ". "
+        "Scientific baseline: v1.5.0-FOUR-CRITERION-FREEZE."
+    ),
+    version="2.0.0",
+    docs_url="/api/docs",
+    redoc_url="/api/redoc",
+)
+
+# CORS for local React dev server
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+        "http://localhost:8000",
+        "http://127.0.0.1:8000",
+    ],
+    allow_origin_regex=r"^https?://(localhost|127\.0\.0\.1)(:\d+)?$",
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Register API routers
+app.include_router(drugs.router)
+app.include_router(polymers.router)
+app.include_router(screening.router)
+app.include_router(history.router)
+
+
+@app.get("/api/version")
+async def version():
+    """Return engine and web app version information."""
+    return {
+        "package_version": get_package_version(),
+        "engine_version": get_engine_version(),
+        "methodology_version": get_methodology_version(),
+        "web_version": "1.0.0",
+        "framework": "ASD Computational Polymer Screening Framework",
+        "status": "Computational Phase Complete — Experimental Phase Pending",
+    }
+
+
+@app.get("/api/health")
+async def health():
+    """Health check endpoint."""
+    return {
+        "status": "ok",
+        "engine": get_engine_version(),
+        "methodology": get_methodology_version(),
+    }
+
+
+# Serve frontend static files in production mode with SPA catch-all fallback
+frontend_dist = PROJECT_ROOT / "frontend" / "dist"
+if frontend_dist.exists():
+    assets_dir = frontend_dist / "assets"
+    if assets_dir.exists():
+        app.mount("/assets", StaticFiles(directory=str(assets_dir)), name="assets")
+
+    @app.get("/{full_path:path}")
+    async def serve_spa(full_path: str):
+        # Allow unhandled API routes to 404 normally
+        if full_path.startswith("api/"):
+            from fastapi import HTTPException
+            raise HTTPException(status_code=404, detail="API endpoint not found")
+
+        # Check if the requested file exists in frontend_dist (e.g. favicon.ico, logo-symbol.svg)
+        if full_path:
+            candidate = (frontend_dist / full_path).resolve()
+            if candidate.is_file() and str(candidate).startswith(str(frontend_dist.resolve())):
+                return FileResponse(candidate)
+
+        # Fallback to SPA index.html for all client routes (/drugs, /polymers, etc.)
+        return FileResponse(frontend_dist / "index.html")
+
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(
+        "backend.main:app",
+        host="127.0.0.1",
+        port=8000,
+        reload=True,
+        reload_dirs=[str(PROJECT_ROOT / "backend")],
+    )

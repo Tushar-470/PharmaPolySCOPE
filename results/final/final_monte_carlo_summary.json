@@ -1,0 +1,13 @@
+{
+  "selected_polymer_id": "POL-006-2026",
+  "confidence_tier": "High Confidence (P(top-1) >= 0.70)",
+  "p_top1": {
+    "POL-006-2026": 0.7554,
+    "POL-005-2026": 0.2018,
+    "POL-001-2026": 0.0403,
+    "POL-002-2026": 0.0025,
+    "POL-007-2026": 0.0
+  },
+  "gelman_rubin_rhat": 1.005,
+  "converged": true
+}

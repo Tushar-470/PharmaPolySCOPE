@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "asd_mcda"
+version = "2.0.0"
+description = "PharmaPolySCOPE: Computational Polymer-Ranking Tool for Amorphous Solid Dispersion Development (Itraconazole & Fenofibrate Comparative Study)"
+readme = "README.md"
+authors = [
+    { name = "Tushar Mathapati" }
+]
+license = { text = "MIT" }
+requires-python = ">=3.11"
+
+dependencies = [
+    "numpy>=1.26.0",
+    "pandas>=2.2.0",
+    "scipy>=1.13.0",
+    "scikit-learn>=1.5.0",
+    "matplotlib>=3.8.0",
+    "openpyxl>=3.1.0",
+    "pyyaml>=6.0.1",
+    "SALib>=1.4.7",
+    "rdkit>=2026.3.6",
+]
+
+[project.urls]
+Homepage = "https://github.com/Tushar-470/PharmaPolySCOPE"
+Repository = "https://github.com/Tushar-470/PharmaPolySCOPE"
+
+[project.scripts]
+asd-mcda = "asd_mcda.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --tb=short"
+markers = [
+    "legacy_v15: Historical v1.5 tests superseded by v2 Variable-K architecture",
+]

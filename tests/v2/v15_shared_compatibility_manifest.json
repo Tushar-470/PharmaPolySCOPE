@@ -1,0 +1,79 @@
+{
+  "governance_standard": "PS-VIVA-MOD15-GOV-001",
+  "historical_v1_5_commit": "31eee4d9bb1cc57b9185f9f958e225d51634c871",
+  "approved_v2_commit": "5ad61479a3adf0bc537d5b9d422f215e8f03faaa",
+  "file_count": 7,
+  "description": "Governed shared V1.5/V2 compatibility files modified under Module 15 Mn-optionality decoupling specifications.",
+  "files": {
+    "src/asd_mcda/compatibility/flory_huggins.py": {
+      "path": "src/asd_mcda/compatibility/flory_huggins.py",
+      "historical_v1_5_commit": "31eee4d",
+      "historical_sha256": "077f89d4c6e6152e37141fe28fafe71cdf1325482ca37f5548da37d1ebe35650",
+      "current_approved_sha256": "7514c84fb549f95f74054a973c5a60bf4f62300cdea3622c4ca68782ab23274d",
+      "current_approved_sha256_crlf": "dfed59c90dfca4c3e05cf4de7bb9deaf28f197d5224810788a9da59068cdaf66",
+      "scope": "SHARED_V1_5_V2_COMPATIBILITY",
+      "reason": "Zero silent fallbacks / removal of Vm=273.0 fabrication",
+      "behavioral_regression_required": true
+    },
+    "src/asd_mcda/polymer/polymer_library.py": {
+      "path": "src/asd_mcda/polymer/polymer_library.py",
+      "historical_v1_5_commit": "31eee4d",
+      "historical_sha256": "8d59505dc874a2cb6be4afc39b19a25e6c7643d920a7f8aa85aa4469af3e1da3",
+      "current_approved_sha256": "9ad7fb2666e8c8c5d98eda5236630f0aba05f311379da64f0db7e23ec8b8c50b",
+      "current_approved_sha256_crlf": "cb11ae57e0fe3ae21440ee05f1ef72dad9ad371572e57a7bf947a2a4188230ad",
+      "scope": "SHARED_V1_5_V2_COMPATIBILITY",
+      "reason": "Mn optionality / V2 compatibility",
+      "behavioral_regression_required": true
+    },
+    "src/asd_mcda/prediction/predictor.py": {
+      "path": "src/asd_mcda/prediction/predictor.py",
+      "historical_v1_5_commit": "31eee4d",
+      "historical_sha256": "e0a6ae7e2870e94af6df1841a6be4b304ebe4a22e8e3fc2560ffd591960011af",
+      "current_approved_sha256": "794a791e662d10f5c22fbd61941607e254eed74aa8b2abe5a0c7b4fd7e07c3e1",
+      "current_approved_sha256_crlf": "a9365a9b8cde48b03c5ff46e18733c4af2459f14d81073973a9cba41805b8a26",
+      "scope": "SHARED_V1_5_V2_COMPATIBILITY",
+      "reason": "Mn optionality / V2 compatibility",
+      "behavioral_regression_required": true
+    },
+    "src/asd_mcda/reporting/report_generator.py": {
+      "path": "src/asd_mcda/reporting/report_generator.py",
+      "historical_v1_5_commit": "31eee4d",
+      "historical_sha256": "ef304e657496e55d2d11393962605165c9f8c6aca599e40224adfed22e92c1fc",
+      "current_approved_sha256": "7e7f59c35afde4153f881e57bddb6d6368127dc6834c9205df5621d63d5db9b2",
+      "current_approved_sha256_crlf": "c654a40568750371f1059a32169177d5ce3af4c77c0b373fc21213b3e1b1409d",
+      "scope": "SHARED_V1_5_V2_COMPATIBILITY",
+      "reason": "Mn optionality / V2 compatibility",
+      "behavioral_regression_required": true
+    },
+    "src/asd_mcda/compatibility/hsp_model.py": {
+      "path": "src/asd_mcda/compatibility/hsp_model.py",
+      "historical_v1_5_commit": "31eee4d",
+      "historical_sha256": "89a2470f9c0b10ae1ed01a5d959f6c66a7c80d154815b3d5b5f3cccf3b4a9a52",
+      "current_approved_sha256": "82a2f919f74c4ab6d5c85c3f8560adc50febf283782a3b58ba2c8519d0677235",
+      "current_approved_sha256_crlf": "08ed326654ebd3261c89fe5ce05a7c369a1bb0a86cceee6eedf3a80a53186df8",
+      "scope": "SHARED_V1_5_V2_COMPATIBILITY",
+      "reason": "Zero silent fallbacks / removal of Ro=8.0 fabrication",
+      "behavioral_regression_required": true
+    },
+    "src/asd_mcda/drug/drug_profile.py": {
+      "path": "src/asd_mcda/drug/drug_profile.py",
+      "historical_v1_5_commit": "31eee4d",
+      "historical_sha256": "610dd9960098547088c3bdb001e411124ac699098ce7ae967323cef3aadf8219",
+      "current_approved_sha256": "06e9fe5b96ca9c862e25cddfa77a943c1541fca0adf4c38957982181d120d712",
+      "current_approved_sha256_crlf": "1d60fa2024e76582951e64899245e00ae0d5f8acc9d0e4013349a9d2c3d02f62",
+      "scope": "SHARED_V1_5_V2_COMPATIBILITY",
+      "reason": "Zero silent fallbacks / removal of Indomethacin defaults",
+      "behavioral_regression_required": true
+    },
+    "src/asd_mcda/utils/rdkit_wrapper.py": {
+      "path": "src/asd_mcda/utils/rdkit_wrapper.py",
+      "historical_v1_5_commit": "31eee4d",
+      "historical_sha256": "8c124ecd23833befab54aa447435821df3cb1fca27ccab1cdbf6903ac7c93300",
+      "current_approved_sha256": "f9170bae14bea3fa2c7b28a901f0278baa539c30bf9653496427ba8df05c80ed",
+      "current_approved_sha256_crlf": "1f3a348400ea8f67eb38ae1793b02a19d4c2529a83aa814dcff0b66ebda29756",
+      "scope": "SHARED_V1_5_V2_COMPATIBILITY",
+      "reason": "Zero silent fallbacks / removal of dummy descriptors and HVK fallbacks",
+      "behavioral_regression_required": true
+    }
+  }
+}

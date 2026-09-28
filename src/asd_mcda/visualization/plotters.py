@@ -1,0 +1,257 @@
+"""
+Programmatic 300 DPI publication figure generator for the framework figures.
+Aligned with Master Research Framework V2.0 Section 13.
+"""
+
+import logging
+from pathlib import Path
+from typing import Dict, List, Optional, Union
+import matplotlib
+matplotlib.use("Agg")  # Non-interactive backend for headless CI/server rendering
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+
+from asd_mcda.integration.pca import PCAResult
+from asd_mcda.prediction.fbm import FBMResult
+from asd_mcda.sensitivity.morris import MorrisResult
+from asd_mcda.uncertainty.monte_carlo import UQResult
+
+
+def resolve_polymer_display_name(
+    polymer_id: str,
+    polymer_name: Optional[str] = None,
+    abbreviation: Optional[str] = None,
+    poly_name_map: Optional[Dict[str, str]] = None,
+) -> str:
+    """
+    Centralized canonical polymer identity resolution mechanism.
+    Formats as "Polymer Name [Polymer ID]". Never silently fallback to POL-ID [POL-ID].
+    If unresolvable, returns "Unknown polymer [POL-ID]" and logs a data integrity warning.
+    """
+    pid = str(polymer_id).strip()
+
+    name = None
+    if polymer_name and str(polymer_name).strip() and str(polymer_name).strip() != pid:
+        name = str(polymer_name).strip()
+    elif poly_name_map and pid in poly_name_map and str(poly_name_map[pid]).strip() and str(poly_name_map[pid]).strip() != pid:
+        name = str(poly_name_map[pid]).strip()
+    elif abbreviation and str(abbreviation).strip() and str(abbreviation).strip() != pid:
+        name = str(abbreviation).strip()
+
+    if not name or name == pid:
+        logging.warning(
+            f"Data Integrity Alert: Unable to resolve canonical polymer_name for ID '{pid}'. Defaulting to 'Unknown polymer'."
+        )
+        name = "Unknown polymer"
+
+    return f"{name} [{pid}]"
+
+
+class FigureGenerator:
+    """Generates publication-quality 300 DPI PNG figures."""
+
+    def __init__(self, output_dir: Union[str, Path], dpi: int = 300):
+        self.output_dir = Path(output_dir)
+        self.output_dir.mkdir(parents=True, exist_ok=True)
+        self.dpi = dpi
+
+        # Set consistent styling
+        plt.style.use("seaborn-v0_8-whitegrid" if "seaborn-v0_8-whitegrid" in plt.style.available else "default")
+        plt.rcParams.update({
+            "font.family": "sans-serif",
+            "font.size": 10,
+            "axes.titlesize": 12,
+            "axes.labelsize": 11,
+            "xtick.labelsize": 9,
+            "ytick.labelsize": 9,
+            "legend.fontsize": 9,
+            "figure.titlesize": 14,
+        })
+
+    def plot_figure_6_ranking(self, ranking_df: pd.DataFrame) -> Path:
+        """
+        AHP-TOPSIS Ranking bar chart (Closeness Coefficient CL).
+        Displays dynamically retrieved Polymer Name + Immutable Polymer ID.
+        """
+        fig, ax = plt.subplots(figsize=(8, 4.5))
+
+        df_sorted = ranking_df.sort_values(by="topsis_cl", ascending=True)
+        y_pos = np.arange(len(df_sorted))
+        cls = df_sorted["topsis_cl"].values
+
+        # Build dynamic presentation label using centralized resolution helper
+        labels = []
+        for _, row in df_sorted.iterrows():
+            pid = row["polymer_id"]
+            raw_name = row.get("polymer_name")
+            abbr = row.get("abbreviation")
+            label = resolve_polymer_display_name(pid, polymer_name=raw_name, abbreviation=abbr)
+            labels.append(label)
+
+        colors = ["#2b5c8f" if cl == max(cls) else "#4a90e2" for cl in cls]
+
+        bars = ax.barh(y_pos, cls, color=colors, edgecolor="black", height=0.6)
+        ax.set_yticks(y_pos)
+        ax.set_yticklabels(labels, fontsize=9.5)
+        ax.set_xlabel("TOPSIS Closeness Coefficient (CL)")
+        ax.set_title("Candidate Polymer AHP-TOPSIS Ranking", fontweight="bold")
+        ax.set_xlim(0.0, 1.0)
+
+        for bar in bars:
+            w = bar.get_width()
+            ax.text(w + 0.02, bar.get_y() + bar.get_height() / 2.0, f"{w:.4f}", ha="left", va="center")
+
+        plt.tight_layout()
+        out_path = self.output_dir / "fig06_ahp_topsis_ranking.png"
+        fig.savefig(out_path, dpi=self.dpi)
+        plt.close(fig)
+        return out_path
+
+    def plot_figure_7_sensitivity_morris(self, morris_res: MorrisResult) -> Path:
+        """
+        Sensitivity Analysis Morris Scatter Plot (mu vs sigma).
+        Displays all analyzed feature weights (including PC1, PC2, PC3 when k=3).
+        """
+        fig, ax = plt.subplots(figsize=(6.5, 5))
+
+        mu = morris_res.mu
+        sigma = morris_res.sigma
+        labels = morris_res.feature_names
+
+        ax.scatter(mu, sigma, color="#d9534f", s=100, zorder=5, edgecolor="black")
+
+        for i, txt in enumerate(labels):
+            ax.annotate(txt, (mu[i] + 0.005, sigma[i] + 0.002), fontsize=10, fontweight="bold")
+
+        ax.axvline(0.10, color="gray", linestyle="--", alpha=0.7, label="Dominant Threshold (mu=0.10)")
+        ax.axhline(0.05, color="gray", linestyle=":", alpha=0.7, label="Interactive Threshold (sigma=0.05)")
+
+        ax.set_xlabel("Mean Elementary Effect (mu)")
+        ax.set_ylabel("Standard Deviation of Elementary Effect (sigma)")
+        ax.set_title("Morris Elementary Effects Sensitivity Plot", fontweight="bold")
+        ax.legend(loc="upper right")
+
+        plt.tight_layout()
+        out_path = self.output_dir / "fig07_morris_sensitivity.png"
+        fig.savefig(out_path, dpi=self.dpi)
+        plt.close(fig)
+        return out_path
+
+    def plot_figure_8_uncertainty(
+        self,
+        uq_res: UQResult,
+        poly_name_map: Optional[Dict[str, str]] = None
+    ) -> Path:
+        """
+        Uncertainty Propagation Monte Carlo P(top-1) Bar Chart.
+        Displays Polymer Name + Immutable Polymer ID on X-axis ticks using centralized resolver.
+        """
+        fig, ax = plt.subplots(figsize=(8, 4.5))
+
+        p_top1 = uq_res.p_top1
+        polys = list(p_top1.keys())
+        probs = [p_top1[p] for p in polys]
+
+        # Format labels via centralized resolver
+        tick_labels = []
+        for pid in polys:
+            p_name = poly_name_map.get(pid) if poly_name_map else None
+            disp_label = resolve_polymer_display_name(pid, polymer_name=p_name, poly_name_map=poly_name_map)
+            parts = disp_label.split(" [")
+            tick_labels.append(f"{parts[0]}\n[{parts[1]}")
+
+        x_pos = np.arange(len(polys))
+        ax.bar(x_pos, probs, color="#5cb85c", edgecolor="black", width=0.5)
+
+        ax.axhline(0.70, color="#d9534f", linestyle="--", linewidth=1.5, label="Selection-Robustness Threshold (0.70)")
+        ax.set_xticks(x_pos)
+        ax.set_xticklabels(tick_labels, rotation=20, ha="right", fontsize=9)
+        ax.set_ylabel("Model-Selection Probability, P(top-1)")
+        ax.set_ylim(0.0, 1.0)
+        ax.set_title("Joint-Distribution Monte Carlo UQ", fontweight="bold")
+        ax.legend()
+
+        plt.tight_layout()
+        out_path = self.output_dir / "fig08_uncertainty_propagation.png"
+        fig.savefig(out_path, dpi=self.dpi)
+        plt.close(fig)
+        return out_path
+
+    def plot_figure_11_pca_scree(self, pca_res: PCAResult) -> Path:
+        """
+        PCA Scree Plot and Cumulative Explained Variance.
+        Renamed from 'PCA Score Plot' to accurately reflect variance breakdown.
+        """
+        fig, ax1 = plt.subplots(figsize=(6.5, 4.5))
+
+        var_ratio = pca_res.explained_variance_ratio * 100
+        cum_var = pca_res.cumulative_variance_ratio * 100
+        pcs = [f"PC{i+1}" for i in range(len(var_ratio))]
+
+        ax1.bar(pcs, var_ratio, color="#337ab7", alpha=0.8, label="Individual Variance (%)")
+        ax1.set_ylabel("Explained Variance (%)", color="#337ab7")
+        ax1.set_ylim(0, 100)
+
+        ax2 = ax1.twinx()
+        ax2.plot(pcs, cum_var, color="#d9534f", marker="o", linewidth=2, label="Cumulative Variance (%)")
+        ax2.axhline(95.0, color="gray", linestyle="--", label="95% Target Threshold")
+        ax2.set_ylabel("Cumulative Variance (%)", color="#d9534f")
+        ax2.set_ylim(0, 105)
+
+        ax1.set_title(
+            f"PCA Scree Plot and Cumulative Explained Variance (Retained k={pca_res.n_components_retained} PCs)",
+            fontweight="bold"
+        )
+
+        plt.tight_layout()
+        out_path = self.output_dir / "fig11_pca_scree_plot.png"
+        fig.savefig(out_path, dpi=self.dpi)
+        plt.close(fig)
+        return out_path
+
+    def plot_figure_12_fbm_contour(self, fbm_res: FBMResult) -> Path:
+        """
+        Exploratory Failure-Risk Probability Surface for Soluplus.
+        Accurately displays multivariable binary logistic regression probability surface.
+        Highlights training domain (0.20-0.40) vs extrapolation regions (0.10-0.20, 0.40-0.50).
+        """
+        fig, ax = plt.subplots(figsize=(7.5, 5.2))
+
+        # Generate 2D operational domain: Inlet Temperature (°C) vs Drug Loading (% w/w)
+        temp_grid = np.linspace(80, 120, 50)
+        load_grid = np.linspace(0.10, 0.50, 50)
+        T, L = np.meshgrid(temp_grid, load_grid)
+
+        # Evaluate logistic regression model P(failure)
+        # Features: [polymer_rank=1, inlet_temp_c, drug_loading_ww, feed_conc_wv=0.10]
+        pts = np.c_[np.ones(T.size), T.ravel(), L.ravel(), np.full(T.size, 0.10)]
+        P = fbm_res.model.predict_proba(pts)[:, 1].reshape(T.shape)
+
+        cs = ax.contourf(T, L, P, levels=np.linspace(0.0, 0.20, 11), cmap="YlOrRd", alpha=0.85)
+        cbar = fig.colorbar(cs, ax=ax)
+        cbar.set_label("P(Operational Failure) [Exploratory Model: Range 0.005 - 0.145]")
+
+        # Annotate training bounds vs extrapolation regions
+        ax.axhline(0.20, color="blue", linestyle="--", linewidth=1.5, label="DoE Training Bounds (L=0.20, 0.40)")
+        ax.axhline(0.40, color="blue", linestyle="--", linewidth=1.5)
+
+        ax.text(82, 0.30, "Training-Supported Region (L=0.20–0.40)", color="blue", fontweight="bold", fontsize=9, bbox=dict(boxstyle="round,pad=0.3", fc="white", ec="blue", alpha=0.8))
+        ax.text(82, 0.14, "Extrapolation Zone (L < 0.20)", color="gray", fontsize=8.5, fontstyle="italic")
+        ax.text(82, 0.44, "Extrapolation Zone (L > 0.40)", color="gray", fontsize=8.5, fontstyle="italic")
+
+        ax.set_xlabel("Inlet Temperature (°C)")
+        ax.set_ylabel("Drug Loading (mass fraction w/w)")
+        ax.set_title(
+            "Exploratory Failure-Risk Probability Surface for Soluplus\n"
+            "[Multivariable Binary Logistic Regression Model (N=54 DoE Runs; 4 Predictors)]",
+            fontweight="bold",
+            fontsize=10
+        )
+        ax.legend(loc="upper right", fontsize=8.5)
+
+        plt.tight_layout()
+        out_path = self.output_dir / "fig12_fbm_contour.png"
+        fig.savefig(out_path, dpi=self.dpi)
+        plt.close(fig)
+        return out_path

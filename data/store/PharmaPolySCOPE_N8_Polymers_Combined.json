@@ -1,0 +1,1642 @@
+{
+  "dataset_title": "PharmaPolySCOPE N=8 Polymer Library Master Export",
+  "description": "Comprehensive physicochemical, structural, and thermodynamic parameter dataset for the 8 core pharmaceutical ASD polymer excipients.",
+  "schema_version": "1.0",
+  "generator_version": "input-generator/1.0",
+  "export_timestamp": "2026-09-26T15:27:33.881453",
+  "total_polymers": 9,
+  "polymers": [
+    {
+      "entity_id": "POL-0001",
+      "library_index": 1,
+      "name": "eudragit l 100",
+      "display_name": "Eudragit® L 100",
+      "abbreviation": "Eudragit L 100",
+      "commercial_grade": "Eudragit® L 100 (Evonik)",
+      "brand_name": "Eudragit®",
+      "manufacturer": "Evonik Nutrition & Care GmbH",
+      "chemical_name": "Poly(methacrylic acid-co-methyl methacrylate) 1:1",
+      "chemical_family": "Methacrylate Copolymer (anionic)",
+      "cas_number": "25086-15-1",
+      "pharmacopoeial_standard": "USP-NF Methacrylic Acid Copolymer, Type A / Ph. Eur. Methacrylic Acid - Methyl Methacrylate Copolymer (1:1)",
+      "monomer_composition": "1:1 molar ratio methacrylic acid : methyl methacrylate",
+      "functional_class": "Enteric film former / pH-triggered release matrix (pH >= 6.0) / ASD carrier",
+      "chemical_structure": {
+        "repeat_unit_smiles": "*CC(*)(C)C(=O)O.*CC(*)(C)C(=O)OC",
+        "repeat_unit_mw_g_mol": 186.21,
+        "representation_type": "Canonical BigSMILES/Repeat-Unit with wildcards (*)",
+        "provenance": "Curated Monomer/Copolymer Topology"
+      },
+      "molecular_weight_distribution": {
+        "weight_average_mw_mw_g_mol": 125000,
+        "polydispersity_index_pdi": 2.08,
+        "provenance": "MANUFACTURER-SPEC"
+      },
+      "thermal_properties": {
+        "glass_transition_tg_K": 423.15,
+        "glass_transition_tg_celsius": 150.0,
+        "measurement_uncertainty_K": 2.5,
+        "measurement_state": "Dry State (compendial dry-state midpoint; free of moisture plasticization)",
+        "citation": "Evonik Eudragit L 100 TDS (dry Tg 150 C / 423.15 K)",
+        "provenance": "LITERATURE"
+      },
+      "density_properties": {
+        "loose_bulk_density_g_cm3": 0.38,
+        "typical_bulk_density_range": "0.35 - 0.45 g/cm³",
+        "true_skeletal_density_g_cm3": 1.28,
+        "density_usage_note": "Use true density (approx 1.20-1.28 g/cm³) for thermodynamic volume fractions; use bulk density (0.32-0.55 g/cm³) for powder processing and feed rate calculations.",
+        "provenance": "MANUFACTURER-SPEC"
+      },
+      "hansen_solubility_parameters": {
+        "delta_D": 17.8,
+        "delta_P": 9.4,
+        "delta_H": 9.9,
+        "delta_total": 22.45,
+        "interaction_radius_R0": 7.5,
+        "unit": "MPa½",
+        "method_id": "HSP-LIT-01",
+        "provenance": "LITERATURE-CURATED (Kitak et al. 2015)"
+      },
+      "direct_properties_map": {
+        "entity_id": "POL-0001",
+        "name": "Eudragit® L 100",
+        "repeat_unit_smiles": "*CC(*)(C)C(=O)O.*CC(*)(C)C(=O)OC",
+        "mw": 125000,
+        "pdi": 2.08,
+        "tg_K": 423.15,
+        "tg_C": 150.0,
+        "bulk_density_g_cm3": 0.38,
+        "true_density_g_cm3": 1.28,
+        "delta_D": 17.8,
+        "delta_P": 9.4,
+        "delta_H": 9.9,
+        "delta_t": 22.45,
+        "R0": 7.5
+      },
+      "monte_carlo_10k_uq_derivation": [
+        {
+          "param_key": "tg_K",
+          "name": "Glass Transition (Tg)",
+          "nominal_base": 423.15,
+          "distribution_type": "Gaussian 10k MC (σ = 2.5 K)",
+          "uncertainty_1sigma": "± 2.5 K",
+          "ci_95": [
+            418.2,
+            428.0
+          ],
+          "ci_95_str": "[418.2, 428.0]",
+          "mc_mean": 423.12,
+          "mc_median": 423.12,
+          "final_value": 423.15,
+          "unit": "K",
+          "method_id": "LIT-POLY-01"
+        },
+        {
+          "param_key": "density_g_cm3",
+          "name": "Bulk / Solid Density (ρ)",
+          "nominal_base": 0.38,
+          "distribution_type": "Gaussian 10k MC (±5.0% 2σ)",
+          "uncertainty_1sigma": "± 0.01 g/cm³",
+          "ci_95": [
+            0.361,
+            0.399
+          ],
+          "ci_95_str": "[0.361, 0.399]",
+          "mc_mean": 0.38,
+          "mc_median": 0.38,
+          "final_value": 0.38,
+          "unit": "g/cm³",
+          "method_id": "MFG-SPEC-01"
+        },
+        {
+          "param_key": "delta_D",
+          "name": "HSP Dispersion (δD)",
+          "nominal_base": 17.8,
+          "distribution_type": "Gaussian 10k MC (σ = 0.77 MPa½)",
+          "uncertainty_1sigma": "± 0.77 MPa½",
+          "ci_95": [
+            16.32,
+            19.28
+          ],
+          "ci_95_str": "[16.32, 19.28]",
+          "mc_mean": 17.81,
+          "mc_median": 17.81,
+          "final_value": 17.8,
+          "unit": "MPa½",
+          "method_id": "HSP-HVK-01"
+        },
+        {
+          "param_key": "delta_P",
+          "name": "HSP Polar (δP)",
+          "nominal_base": 9.4,
+          "distribution_type": "Gaussian 10k MC (σ = 0.77 MPa½)",
+          "uncertainty_1sigma": "± 0.77 MPa½",
+          "ci_95": [
+            7.89,
+            10.91
+          ],
+          "ci_95_str": "[7.89, 10.91]",
+          "mc_mean": 9.39,
+          "mc_median": 9.4,
+          "final_value": 9.4,
+          "unit": "MPa½",
+          "method_id": "HSP-HVK-01"
+        },
+        {
+          "param_key": "delta_H",
+          "name": "HSP Hydrogen-Bond (δH)",
+          "nominal_base": 9.9,
+          "distribution_type": "Gaussian 10k MC (σ = 0.77 MPa½)",
+          "uncertainty_1sigma": "± 0.77 MPa½",
+          "ci_95": [
+            8.41,
+            11.41
+          ],
+          "ci_95_str": "[8.41, 11.41]",
+          "mc_mean": 9.91,
+          "mc_median": 9.91,
+          "final_value": 9.9,
+          "unit": "MPa½",
+          "method_id": "HSP-HVK-01"
+        },
+        {
+          "param_key": "delta_t",
+          "name": "Total Solubility (δt)",
+          "nominal_base": 22.45,
+          "distribution_type": "Propagated 10k MC Norm",
+          "uncertainty_1sigma": "± 0.83 MPa½",
+          "ci_95": [
+            20.95,
+            23.92
+          ],
+          "ci_95_str": "[20.95, 23.92]",
+          "mc_mean": 22.47,
+          "mc_median": 22.48,
+          "final_value": 22.45,
+          "unit": "MPa½",
+          "method_id": "HSP-HVK-01"
+        }
+      ],
+      "quality_control": {
+        "status": "VALID",
+        "data_integrity_status": "PASS",
+        "rules_verified": [
+          "Identity and Grade Specification Attached",
+          "Dry-State Tg within Compendial Bounds",
+          "Bulk and True Densities Disambiguated",
+          "HSP Vector Concordance Displacement < 5.0 MPa½",
+          "Deterministic 10k Monte Carlo Convergence Verified"
+        ]
+      }
+    },
+    {
+      "entity_id": "POL-0002",
+      "library_index": 2,
+      "name": "eudragit rl po",
+      "display_name": "Eudragit® RL PO",
+      "abbreviation": "Eudragit RL PO",
+      "commercial_grade": "Eudragit® RL PO (Evonik)",
+      "brand_name": "Eudragit®",
+      "manufacturer": "Evonik Nutrition & Care GmbH",
+      "chemical_name": "Poly(ethyl acrylate-co-methyl methacrylate-co-trimethylammonioethyl methacrylate chloride) 1:2:0.2",
+      "chemical_family": "Ammonio Methacrylate Copolymer (cationic)",
+      "cas_number": "33434-24-1",
+      "pharmacopoeial_standard": "USP-NF Ammonio Methacrylate Copolymer, Type A / Ph. Eur. Ammonio Methacrylate Copolymer Type A",
+      "monomer_composition": "EA:MMA:TMAEMA-Cl (1:2:0.2 molar ratio; approx 10% ammonio groups)",
+      "functional_class": "Insoluble, high-permeability swellable sustained release carrier / ASD matrix",
+      "chemical_structure": {
+        "repeat_unit_smiles": "*CC(*)C(=O)OCC.*CC(*)(C)C(=O)OC.*CC(*)(C)C(=O)OCC[N+](C)(C)C",
+        "repeat_unit_mw_g_mol": 415.91,
+        "representation_type": "Canonical BigSMILES/Repeat-Unit with wildcards (*)",
+        "provenance": "Curated Monomer/Copolymer Topology"
+      },
+      "molecular_weight_distribution": {
+        "weight_average_mw_mw_g_mol": 150000,
+        "polydispersity_index_pdi": 4.69,
+        "provenance": "MANUFACTURER-SPEC"
+      },
+      "thermal_properties": {
+        "glass_transition_tg_K": 338.15,
+        "glass_transition_tg_celsius": 65.0,
+        "measurement_uncertainty_K": 2.5,
+        "measurement_state": "Dry State (compendial dry-state midpoint; free of moisture plasticization)",
+        "citation": "Evonik Eudragit RL PO TDS (dry Tg 65 C / 338.15 K)",
+        "provenance": "LITERATURE"
+      },
+      "density_properties": {
+        "loose_bulk_density_g_cm3": 0.4,
+        "typical_bulk_density_range": "0.35 - 0.45 g/cm³",
+        "true_skeletal_density_g_cm3": 1.18,
+        "density_usage_note": "Use true density (approx 1.20-1.28 g/cm³) for thermodynamic volume fractions; use bulk density (0.32-0.55 g/cm³) for powder processing and feed rate calculations.",
+        "provenance": "MANUFACTURER-SPEC"
+      },
+      "hansen_solubility_parameters": {
+        "delta_D": 14.85,
+        "delta_P": 1.99,
+        "delta_H": 7.27,
+        "delta_total": 16.65,
+        "interaction_radius_R0": 7.5,
+        "unit": "MPa½",
+        "method_id": "HSP-HVK-01",
+        "provenance": "CALCULATED (HVK Group Contribution)"
+      },
+      "direct_properties_map": {
+        "entity_id": "POL-0002",
+        "name": "Eudragit® RL PO",
+        "repeat_unit_smiles": "*CC(*)C(=O)OCC.*CC(*)(C)C(=O)OC.*CC(*)(C)C(=O)OCC[N+](C)(C)C",
+        "mw": 150000,
+        "pdi": 4.69,
+        "tg_K": 338.15,
+        "tg_C": 65.0,
+        "bulk_density_g_cm3": 0.4,
+        "true_density_g_cm3": 1.18,
+        "delta_D": 14.85,
+        "delta_P": 1.99,
+        "delta_H": 7.27,
+        "delta_t": 16.65,
+        "R0": 7.5
+      },
+      "monte_carlo_10k_uq_derivation": [
+        {
+          "param_key": "tg_K",
+          "name": "Glass Transition (Tg)",
+          "nominal_base": 338.15,
+          "distribution_type": "Gaussian 10k MC (σ = 2.5 K)",
+          "uncertainty_1sigma": "± 2.5 K",
+          "ci_95": [
+            333.2,
+            343.0
+          ],
+          "ci_95_str": "[333.2, 343.0]",
+          "mc_mean": 338.12,
+          "mc_median": 338.12,
+          "final_value": 338.15,
+          "unit": "K",
+          "method_id": "LIT-POLY-01"
+        },
+        {
+          "param_key": "density_g_cm3",
+          "name": "Bulk / Solid Density (ρ)",
+          "nominal_base": 0.4,
+          "distribution_type": "Gaussian 10k MC (±5.0% 2σ)",
+          "uncertainty_1sigma": "± 0.01 g/cm³",
+          "ci_95": [
+            0.38,
+            0.42
+          ],
+          "ci_95_str": "[0.38, 0.42]",
+          "mc_mean": 0.4,
+          "mc_median": 0.4,
+          "final_value": 0.4,
+          "unit": "g/cm³",
+          "method_id": "MFG-SPEC-01"
+        },
+        {
+          "param_key": "delta_D",
+          "name": "HSP Dispersion (δD)",
+          "nominal_base": 14.85,
+          "distribution_type": "Gaussian 10k MC (σ = 0.77 MPa½)",
+          "uncertainty_1sigma": "± 0.77 MPa½",
+          "ci_95": [
+            13.37,
+            16.33
+          ],
+          "ci_95_str": "[13.37, 16.33]",
+          "mc_mean": 14.86,
+          "mc_median": 14.86,
+          "final_value": 14.85,
+          "unit": "MPa½",
+          "method_id": "HSP-HVK-01"
+        },
+        {
+          "param_key": "delta_P",
+          "name": "HSP Polar (δP)",
+          "nominal_base": 1.99,
+          "distribution_type": "Gaussian 10k MC (σ = 0.77 MPa½)",
+          "uncertainty_1sigma": "± 0.77 MPa½",
+          "ci_95": [
+            0.48,
+            3.5
+          ],
+          "ci_95_str": "[0.48, 3.5]",
+          "mc_mean": 1.98,
+          "mc_median": 1.99,
+          "final_value": 1.99,
+          "unit": "MPa½",
+          "method_id": "HSP-HVK-01"
+        },
+        {
+          "param_key": "delta_H",
+          "name": "HSP Hydrogen-Bond (δH)",
+          "nominal_base": 7.27,
+          "distribution_type": "Gaussian 10k MC (σ = 0.77 MPa½)",
+          "uncertainty_1sigma": "± 0.77 MPa½",
+          "ci_95": [
+            5.78,
+            8.78
+          ],
+          "ci_95_str": "[5.78, 8.78]",
+          "mc_mean": 7.28,
+          "mc_median": 7.28,
+          "final_value": 7.27,
+          "unit": "MPa½",
+          "method_id": "HSP-HVK-01"
+        },
+        {
+          "param_key": "delta_t",
+          "name": "Total Solubility (δt)",
+          "nominal_base": 16.65,
+          "distribution_type": "Propagated 10k MC Norm",
+          "uncertainty_1sigma": "± 0.83 MPa½",
+          "ci_95": [
+            15.19,
+            18.18
+          ],
+          "ci_95_str": "[15.19, 18.18]",
+          "mc_mean": 16.7,
+          "mc_median": 16.71,
+          "final_value": 16.65,
+          "unit": "MPa½",
+          "method_id": "HSP-HVK-01"
+        }
+      ],
+      "quality_control": {
+        "status": "VALID",
+        "data_integrity_status": "PASS",
+        "rules_verified": [
+          "Identity and Grade Specification Attached",
+          "Dry-State Tg within Compendial Bounds",
+          "Bulk and True Densities Disambiguated",
+          "HSP Vector Concordance Displacement < 5.0 MPa½",
+          "Deterministic 10k Monte Carlo Convergence Verified"
+        ]
+      }
+    },
+    {
+      "entity_id": "POL-0003",
+      "library_index": 3,
+      "name": "hypromellose acetate succinate (hpmcas)",
+      "display_name": "HPMCAS-MF",
+      "abbreviation": "HPMCAS-MF",
+      "commercial_grade": "Shin-Etsu AQOAT® AS-MF (HPMCAS-M / AS-MF)",
+      "brand_name": "Shin-Etsu AQOAT®",
+      "manufacturer": "Shin-Etsu Chemical Co., Ltd.",
+      "chemical_name": "Hypromellose Acetate Succinate, Micronized Fine Grade (M substitution)",
+      "chemical_family": "Cellulosic Ester-Ether (enteric)",
+      "cas_number": "71138-97-1",
+      "pharmacopoeial_standard": "USP-NF / JP Hypromellose Acetate Succinate",
+      "monomer_composition": "Acetyl 7-11%, Succinoyl 10-14%, Methoxy 21-25%, Hydroxypropoxy 5-9%",
+      "functional_class": "Enteric ASD matrix / potent crystallization and precipitation inhibitor (pH >= 6.0)",
+      "chemical_structure": {
+        "repeat_unit_smiles": "*OC1C(OC(=O)C)C(OC(=O)CCC(=O)O)C(COCC(C)O)C(O1)O*",
+        "repeat_unit_mw_g_mol": 250.0,
+        "representation_type": "Canonical BigSMILES/Repeat-Unit with wildcards (*)",
+        "provenance": "Curated Monomer/Copolymer Topology"
+      },
+      "molecular_weight_distribution": {
+        "weight_average_mw_mw_g_mol": 18500,
+        "polydispersity_index_pdi": 1.42,
+        "provenance": "MANUFACTURER-SPEC"
+      },
+      "thermal_properties": {
+        "glass_transition_tg_K": 393.15,
+        "glass_transition_tg_celsius": 120.0,
+        "measurement_uncertainty_K": 2.5,
+        "measurement_state": "Dry State (compendial dry-state midpoint; free of moisture plasticization)",
+        "citation": "Sarabu et al. (2020). Pharmaceutics, 12(3), 253 (PMC7082948, MG Tg = 120°C); Shin-Etsu AQOAT Technical Brochure",
+        "provenance": "LITERATURE"
+      },
+      "density_properties": {
+        "loose_bulk_density_g_cm3": 0.38,
+        "typical_bulk_density_range": "0.30 - 0.42 g/cm³ (micronized fine powder)",
+        "true_skeletal_density_g_cm3": 1.28,
+        "density_usage_note": "Use true density (approx 1.20-1.28 g/cm³) for thermodynamic volume fractions; use bulk density (0.32-0.55 g/cm³) for powder processing and feed rate calculations.",
+        "provenance": "MANUFACTURER-SPEC"
+      },
+      "hansen_solubility_parameters": {
+        "delta_D": 18.5,
+        "delta_P": 11.2,
+        "delta_H": 8.9,
+        "delta_total": 23.37,
+        "interaction_radius_R0": 7.5,
+        "unit": "MPa½",
+        "method_id": "HSP-LIT-01",
+        "provenance": "LITERATURE-CURATED (Hansen 2007 / Excipient Monograph)"
+      },
+      "direct_properties_map": {
+        "entity_id": "POL-0003",
+        "name": "HPMCAS-MF",
+        "repeat_unit_smiles": "*OC1C(OC(=O)C)C(OC(=O)CCC(=O)O)C(COCC(C)O)C(O1)O*",
+        "mw": 18500,
+        "pdi": 1.42,
+        "tg_K": 393.15,
+        "tg_C": 120.0,
+        "bulk_density_g_cm3": 0.38,
+        "true_density_g_cm3": 1.28,
+        "delta_D": 18.5,
+        "delta_P": 11.2,
+        "delta_H": 8.9,
+        "delta_t": 23.37,
+        "R0": 7.5
+      },
+      "monte_carlo_10k_uq_derivation": [
+        {
+          "param_key": "tg_K",
+          "name": "Glass Transition (Tg)",
+          "nominal_base": 393.15,
+          "distribution_type": "Gaussian 10k MC (σ = 2.5 K)",
+          "uncertainty_1sigma": "± 2.5 K",
+          "ci_95": [
+            388.2,
+            398.0
+          ],
+          "ci_95_str": "[388.2, 398.0]",
+          "mc_mean": 393.12,
+          "mc_median": 393.12,
+          "final_value": 393.15,
+          "unit": "K",
+          "method_id": "LIT-POLY-01"
+        },
+        {
+          "param_key": "density_g_cm3",
+          "name": "Bulk / Solid Density (ρ)",
+          "nominal_base": 0.38,
+          "distribution_type": "Gaussian 10k MC (±5.0% 2σ)",
+          "uncertainty_1sigma": "± 0.01 g/cm³",
+          "ci_95": [
+            0.361,
+            0.399
+          ],
+          "ci_95_str": "[0.361, 0.399]",
+          "mc_mean": 0.38,
+          "mc_median": 0.38,
+          "final_value": 0.38,
+          "unit": "g/cm³",
+          "method_id": "MFG-SPEC-01"
+        },
+        {
+          "param_key": "delta_D",
+          "name": "HSP Dispersion (δD)",
+          "nominal_base": 18.5,
+          "distribution_type": "Gaussian 10k MC (σ = 0.77 MPa½)",
+          "uncertainty_1sigma": "± 0.77 MPa½",
+          "ci_95": [
+            17.02,
+            19.98
+          ],
+          "ci_95_str": "[17.02, 19.98]",
+          "mc_mean": 18.51,
+          "mc_median": 18.51,
+          "final_value": 18.5,
+          "unit": "MPa½",
+          "method_id": "HSP-HVK-01"
+        },
+        {
+          "param_key": "delta_P",
+          "name": "HSP Polar (δP)",
+          "nominal_base": 11.2,
+          "distribution_type": "Gaussian 10k MC (σ = 0.77 MPa½)",
+          "uncertainty_1sigma": "± 0.77 MPa½",
+          "ci_95": [
+            9.69,
+            12.71
+          ],
+          "ci_95_str": "[9.69, 12.71]",
+          "mc_mean": 11.19,
+          "mc_median": 11.2,
+          "final_value": 11.2,
+          "unit": "MPa½",
+          "method_id": "HSP-HVK-01"
+        },
+        {
+          "param_key": "delta_H",
+          "name": "HSP Hydrogen-Bond (δH)",
+          "nominal_base": 8.9,
+          "distribution_type": "Gaussian 10k MC (σ = 0.77 MPa½)",
+          "uncertainty_1sigma": "± 0.77 MPa½",
+          "ci_95": [
+            7.41,
+            10.41
+          ],
+          "ci_95_str": "[7.41, 10.41]",
+          "mc_mean": 8.91,
+          "mc_median": 8.91,
+          "final_value": 8.9,
+          "unit": "MPa½",
+          "method_id": "HSP-HVK-01"
+        },
+        {
+          "param_key": "delta_t",
+          "name": "Total Solubility (δt)",
+          "nominal_base": 23.37,
+          "distribution_type": "Propagated 10k MC Norm",
+          "uncertainty_1sigma": "± 0.83 MPa½",
+          "ci_95": [
+            21.9,
+            24.88
+          ],
+          "ci_95_str": "[21.9, 24.88]",
+          "mc_mean": 23.42,
+          "mc_median": 23.43,
+          "final_value": 23.37,
+          "unit": "MPa½",
+          "method_id": "HSP-HVK-01"
+        }
+      ],
+      "quality_control": {
+        "status": "VALID",
+        "data_integrity_status": "PASS",
+        "rules_verified": [
+          "Identity and Grade Specification Attached",
+          "Dry-State Tg within Compendial Bounds",
+          "Bulk and True Densities Disambiguated",
+          "HSP Vector Concordance Displacement < 5.0 MPa½",
+          "Deterministic 10k Monte Carlo Convergence Verified"
+        ]
+      }
+    },
+    {
+      "entity_id": "POL-0004",
+      "library_index": 4,
+      "name": "hypromellose phthalate (hpmcp)",
+      "display_name": "HPMCP-55",
+      "abbreviation": "HPMCP HP-55",
+      "commercial_grade": "Shin-Etsu HPMCP HP-55 (HP-55)",
+      "brand_name": "Shin-Etsu HPMCP®",
+      "manufacturer": "Shin-Etsu Chemical Co., Ltd.",
+      "chemical_name": "Cellulose, hydrogen 1,2-benzenedicarboxylate, 2-hydroxypropyl methyl ether",
+      "chemical_family": "Cellulosic Ester-Ether (enteric)",
+      "cas_number": "9050-31-1",
+      "pharmacopoeial_standard": "USP-NF / Ph. Eur. / JP Hypromellose Phthalate",
+      "monomer_composition": "Phthalyl 27-35%, Methoxy 18-22%, Hydroxypropoxy 5-9%",
+      "functional_class": "Enteric matrix polymer / precipitation inhibitor / spray drying carrier (pH >= 5.5)",
+      "chemical_structure": {
+        "repeat_unit_smiles": "*OC1C(OC(=O)c2ccccc2C(=O)O)C(OCC(C)O)C(OC(*)C1COC)O",
+        "repeat_unit_mw_g_mol": 350.0,
+        "representation_type": "Canonical BigSMILES/Repeat-Unit with wildcards (*)",
+        "provenance": "Curated Monomer/Copolymer Topology"
+      },
+      "molecular_weight_distribution": {
+        "weight_average_mw_mw_g_mol": 84000,
+        "polydispersity_index_pdi": 1.87,
+        "provenance": "MANUFACTURER-SPEC"
+      },
+      "thermal_properties": {
+        "glass_transition_tg_K": 421.15,
+        "glass_transition_tg_celsius": 148.0,
+        "measurement_uncertainty_K": 2.5,
+        "measurement_state": "Dry State (compendial dry-state midpoint; free of moisture plasticization)",
+        "citation": "Shin-Etsu HPMCP HP-55 TDS (dry Tg 148 C / 421.15 K)",
+        "provenance": "LITERATURE"
+      },
+      "density_properties": {
+        "loose_bulk_density_g_cm3": 0.35,
+        "typical_bulk_density_range": "0.30 - 0.40 g/cm³",
+        "true_skeletal_density_g_cm3": 1.28,
+        "density_usage_note": "Use true density (approx 1.20-1.28 g/cm³) for thermodynamic volume fractions; use bulk density (0.32-0.55 g/cm³) for powder processing and feed rate calculations.",
+        "provenance": "MANUFACTURER-SPEC"
+      },
+      "hansen_solubility_parameters": {
+        "delta_D": 19.29,
+        "delta_P": 5.46,
+        "delta_H": 19.03,
+        "delta_total": 27.64,
+        "interaction_radius_R0": 7.5,
+        "unit": "MPa½",
+        "method_id": "HSP-HVK-01",
+        "provenance": "CALCULATED (HVK Group Contribution)"
+      },
+      "direct_properties_map": {
+        "entity_id": "POL-0004",
+        "name": "HPMCP-55",
+        "repeat_unit_smiles": "*OC1C(OC(=O)c2ccccc2C(=O)O)C(OCC(C)O)C(OC(*)C1COC)O",
+        "mw": 84000,
+        "pdi": 1.87,
+        "tg_K": 421.15,
+        "tg_C": 148.0,
+        "bulk_density_g_cm3": 0.35,
+        "true_density_g_cm3": 1.28,
+        "delta_D": 19.29,
+        "delta_P": 5.46,
+        "delta_H": 19.03,
+        "delta_t": 27.64,
+        "R0": 7.5
+      },
+      "monte_carlo_10k_uq_derivation": [
+        {
+          "param_key": "tg_K",
+          "name": "Glass Transition (Tg)",
+          "nominal_base": 421.15,
+          "distribution_type": "Gaussian 10k MC (σ = 2.5 K)",
+          "uncertainty_1sigma": "± 2.5 K",
+          "ci_95": [
+            416.2,
+            426.0
+          ],
+          "ci_95_str": "[416.2, 426.0]",
+          "mc_mean": 421.12,
+          "mc_median": 421.12,
+          "final_value": 421.15,
+          "unit": "K",
+          "method_id": "LIT-POLY-01"
+        },
+        {
+          "param_key": "density_g_cm3",
+          "name": "Bulk / Solid Density (ρ)",
+          "nominal_base": 0.35,
+          "distribution_type": "Gaussian 10k MC (±5.0% 2σ)",
+          "uncertainty_1sigma": "± 0.009 g/cm³",
+          "ci_95": [
+            0.333,
+            0.367
+          ],
+          "ci_95_str": "[0.333, 0.367]",
+          "mc_mean": 0.35,
+          "mc_median": 0.35,
+          "final_value": 0.35,
+          "unit": "g/cm³",
+          "method_id": "MFG-SPEC-01"
+        },
+        {
+          "param_key": "delta_D",
+          "name": "HSP Dispersion (δD)",
+          "nominal_base": 19.29,
+          "distribution_type": "Gaussian 10k MC (σ = 0.77 MPa½)",
+          "uncertainty_1sigma": "± 0.77 MPa½",
+          "ci_95": [
+            17.81,
+            20.77
+          ],
+          "ci_95_str": "[17.81, 20.77]",
+          "mc_mean": 19.3,
+          "mc_median": 19.3,
+          "final_value": 19.29,
+          "unit": "MPa½",
+          "method_id": "HSP-HVK-01"
+        },
+        {
+          "param_key": "delta_P",
+          "name": "HSP Polar (δP)",
+          "nominal_base": 5.46,
+          "distribution_type": "Gaussian 10k MC (σ = 0.77 MPa½)",
+          "uncertainty_1sigma": "± 0.77 MPa½",
+          "ci_95": [
+            3.95,
+            6.97
+          ],
+          "ci_95_str": "[3.95, 6.97]",
+          "mc_mean": 5.45,
+          "mc_median": 5.46,
+          "final_value": 5.46,
+          "unit": "MPa½",
+          "method_id": "HSP-HVK-01"
+        },
+        {
+          "param_key": "delta_H",
+          "name": "HSP Hydrogen-Bond (δH)",
+          "nominal_base": 19.03,
+          "distribution_type": "Gaussian 10k MC (σ = 0.77 MPa½)",
+          "uncertainty_1sigma": "± 0.77 MPa½",
+          "ci_95": [
+            17.54,
+            20.54
+          ],
+          "ci_95_str": "[17.54, 20.54]",
+          "mc_mean": 19.04,
+          "mc_median": 19.04,
+          "final_value": 19.03,
+          "unit": "MPa½",
+          "method_id": "HSP-HVK-01"
+        },
+        {
+          "param_key": "delta_t",
+          "name": "Total Solubility (δt)",
+          "nominal_base": 27.64,
+          "distribution_type": "Propagated 10k MC Norm",
+          "uncertainty_1sigma": "± 0.83 MPa½",
+          "ci_95": [
+            26.17,
+            29.15
+          ],
+          "ci_95_str": "[26.17, 29.15]",
+          "mc_mean": 27.67,
+          "mc_median": 27.68,
+          "final_value": 27.64,
+          "unit": "MPa½",
+          "method_id": "HSP-HVK-01"
+        }
+      ],
+      "quality_control": {
+        "status": "VALID",
+        "data_integrity_status": "PASS",
+        "rules_verified": [
+          "Identity and Grade Specification Attached",
+          "Dry-State Tg within Compendial Bounds",
+          "Bulk and True Densities Disambiguated",
+          "HSP Vector Concordance Displacement < 5.0 MPa½",
+          "Deterministic 10k Monte Carlo Convergence Verified"
+        ]
+      }
+    },
+    {
+      "entity_id": "POL-0005",
+      "library_index": 5,
+      "name": "polyvinyl alcohol (pva)",
+      "display_name": "PVA 4-88",
+      "abbreviation": "PVA 4-88 / Parteck MXP",
+      "commercial_grade": "Merck Parteck® MXP (PVA 4-88)",
+      "brand_name": "Parteck® MXP",
+      "manufacturer": "Merck KGaA / MilliporeSigma",
+      "chemical_name": "Polyvinyl Alcohol (partially hydrolyzed)",
+      "chemical_family": "Polyvinyl Alcohol",
+      "cas_number": "9002-89-5",
+      "pharmacopoeial_standard": "Ph. Eur. / USP Polyvinyl Alcohol (partially hydrolyzed)",
+      "monomer_composition": "86.7 - 88.7% degree of hydrolysis (approx 12% residual vinyl acetate)",
+      "functional_class": "Hot-melt extrusion matrix / crystallization inhibitor / film coating polymer",
+      "chemical_structure": {
+        "repeat_unit_smiles": "*CC(*)O",
+        "repeat_unit_mw_g_mol": 44.05,
+        "representation_type": "Canonical BigSMILES/Repeat-Unit with wildcards (*)",
+        "provenance": "Curated Monomer/Copolymer Topology"
+      },
+      "molecular_weight_distribution": {
+        "weight_average_mw_mw_g_mol": 102309,
+        "polydispersity_index_pdi": 3.28,
+        "provenance": "MANUFACTURER-SPEC"
+      },
+      "thermal_properties": {
+        "glass_transition_tg_K": 358.15,
+        "glass_transition_tg_celsius": 85.0,
+        "measurement_uncertainty_K": 2.5,
+        "measurement_state": "Dry State (compendial dry-state midpoint; free of moisture plasticization)",
+        "citation": "Thomas et al. (2018). Polymer, 147, 179-188 (Tg = 85°C); Tsioptsias et al. (2023). PMC10145932; Merck Millipore Parteck MXP Technical Brochure",
+        "provenance": "LITERATURE"
+      },
+      "density_properties": {
+        "loose_bulk_density_g_cm3": 0.55,
+        "typical_bulk_density_range": "0.50 - 0.60 g/cm³",
+        "true_skeletal_density_g_cm3": 1.26,
+        "density_usage_note": "Use true density (approx 1.20-1.28 g/cm³) for thermodynamic volume fractions; use bulk density (0.32-0.55 g/cm³) for powder processing and feed rate calculations.",
+        "provenance": "MANUFACTURER-SPEC"
+      },
+      "hansen_solubility_parameters": {
+        "delta_D": 17.0,
+        "delta_P": 9.0,
+        "delta_H": 18.0,
+        "delta_total": 26.34,
+        "interaction_radius_R0": 7.5,
+        "unit": "MPa½",
+        "method_id": "HSP-LIT-01",
+        "provenance": "LITERATURE-CURATED (Hansen 2007 / Excipient Monograph)"
+      },
+      "direct_properties_map": {
+        "entity_id": "POL-0005",
+        "name": "PVA 4-88",
+        "repeat_unit_smiles": "*CC(*)O",
+        "mw": 102309,
+        "pdi": 3.28,
+        "tg_K": 358.15,
+        "tg_C": 85.0,
+        "bulk_density_g_cm3": 0.55,
+        "true_density_g_cm3": 1.26,
+        "delta_D": 17.0,
+        "delta_P": 9.0,
+        "delta_H": 18.0,
+        "delta_t": 26.34,
+        "R0": 7.5
+      },
+      "monte_carlo_10k_uq_derivation": [
+        {
+          "param_key": "tg_K",
+          "name": "Glass Transition (Tg)",
+          "nominal_base": 358.15,
+          "distribution_type": "Gaussian 10k MC (σ = 2.5 K)",
+          "uncertainty_1sigma": "± 2.5 K",
+          "ci_95": [
+            353.2,
+            363.0
+          ],
+          "ci_95_str": "[353.2, 363.0]",
+          "mc_mean": 358.12,
+          "mc_median": 358.12,
+          "final_value": 358.15,
+          "unit": "K",
+          "method_id": "LIT-POLY-01"
+        },
+        {
+          "param_key": "density_g_cm3",
+          "name": "Bulk / Solid Density (ρ)",
+          "nominal_base": 0.55,
+          "distribution_type": "Gaussian 10k MC (±5.0% 2σ)",
+          "uncertainty_1sigma": "± 0.014 g/cm³",
+          "ci_95": [
+            0.523,
+            0.577
+          ],
+          "ci_95_str": "[0.523, 0.577]",
+          "mc_mean": 0.55,
+          "mc_median": 0.55,
+          "final_value": 0.55,
+          "unit": "g/cm³",
+          "method_id": "MFG-SPEC-01"
+        },
+        {
+          "param_key": "delta_D",
+          "name": "HSP Dispersion (δD)",
+          "nominal_base": 17.0,
+          "distribution_type": "Gaussian 10k MC (σ = 0.77 MPa½)",
+          "uncertainty_1sigma": "± 0.77 MPa½",
+          "ci_95": [
+            15.52,
+            18.48
+          ],
+          "ci_95_str": "[15.52, 18.48]",
+          "mc_mean": 17.01,
+          "mc_median": 17.01,
+          "final_value": 17.0,
+          "unit": "MPa½",
+          "method_id": "HSP-HVK-01"
+        },
+        {
+          "param_key": "delta_P",
+          "name": "HSP Polar (δP)",
+          "nominal_base": 9.0,
+          "distribution_type": "Gaussian 10k MC (σ = 0.77 MPa½)",
+          "uncertainty_1sigma": "± 0.77 MPa½",
+          "ci_95": [
+            7.49,
+            10.51
+          ],
+          "ci_95_str": "[7.49, 10.51]",
+          "mc_mean": 8.99,
+          "mc_median": 9.0,
+          "final_value": 9.0,
+          "unit": "MPa½",
+          "method_id": "HSP-HVK-01"
+        },
+        {
+          "param_key": "delta_H",
+          "name": "HSP Hydrogen-Bond (δH)",
+          "nominal_base": 18.0,
+          "distribution_type": "Gaussian 10k MC (σ = 0.77 MPa½)",
+          "uncertainty_1sigma": "± 0.77 MPa½",
+          "ci_95": [
+            16.51,
+            19.51
+          ],
+          "ci_95_str": "[16.51, 19.51]",
+          "mc_mean": 18.01,
+          "mc_median": 18.01,
+          "final_value": 18.0,
+          "unit": "MPa½",
+          "method_id": "HSP-HVK-01"
+        },
+        {
+          "param_key": "delta_t",
+          "name": "Total Solubility (δt)",
+          "nominal_base": 26.34,
+          "distribution_type": "Propagated 10k MC Norm",
+          "uncertainty_1sigma": "± 0.83 MPa½",
+          "ci_95": [
+            24.87,
+            27.86
+          ],
+          "ci_95_str": "[24.87, 27.86]",
+          "mc_mean": 26.37,
+          "mc_median": 26.38,
+          "final_value": 26.34,
+          "unit": "MPa½",
+          "method_id": "HSP-HVK-01"
+        }
+      ],
+      "quality_control": {
+        "status": "VALID",
+        "data_integrity_status": "PASS",
+        "rules_verified": [
+          "Identity and Grade Specification Attached",
+          "Dry-State Tg within Compendial Bounds",
+          "Bulk and True Densities Disambiguated",
+          "HSP Vector Concordance Displacement < 5.0 MPa½",
+          "Deterministic 10k Monte Carlo Convergence Verified"
+        ]
+      }
+    },
+    {
+      "entity_id": "POL-0006",
+      "library_index": 6,
+      "name": "polyvinyl acetate phthalate (pvap)",
+      "display_name": "PVAP",
+      "abbreviation": "PVAP / Phthalavin",
+      "commercial_grade": "Colorcon Phthalavin® (Polyvinyl Acetate Phthalate)",
+      "brand_name": "Phthalavin® / Sureteric®",
+      "manufacturer": "Colorcon, Inc.",
+      "chemical_name": "Acetic acid ethenyl ester polymer with ethenyl hydrogen 1,2-benzenedicarboxylate",
+      "chemical_family": "Vinyl Ester Copolymer (enteric)",
+      "cas_number": "34481-48-6",
+      "pharmacopoeial_standard": "USP-NF Polyvinyl Acetate Phthalate",
+      "monomer_composition": "Phthalyl 55-62%, Acetyl 10-15%",
+      "functional_class": "Enteric matrix polymer / solubility enhancer / gastro-resistant carrier (pH >= 5.0)",
+      "chemical_structure": {
+        "repeat_unit_smiles": "*CC(*)OC(=O)c1ccccc1C(=O)O.*CC(*)OC(C)=O",
+        "repeat_unit_mw_g_mol": 218.2,
+        "representation_type": "Canonical BigSMILES/Repeat-Unit with wildcards (*)",
+        "provenance": "Curated Monomer/Copolymer Topology"
+      },
+      "molecular_weight_distribution": {
+        "weight_average_mw_mw_g_mol": 55000,
+        "polydispersity_index_pdi": 2.2,
+        "provenance": "MANUFACTURER-SPEC"
+      },
+      "thermal_properties": {
+        "glass_transition_tg_K": 383.15,
+        "glass_transition_tg_celsius": 110.0,
+        "measurement_uncertainty_K": 2.5,
+        "measurement_state": "Dry State (compendial dry-state midpoint; free of moisture plasticization)",
+        "citation": "Colorcon Phthalavin Technical Brochure (dry Tg 110 C / 383.15 K)",
+        "provenance": "LITERATURE"
+      },
+      "density_properties": {
+        "loose_bulk_density_g_cm3": 0.4,
+        "typical_bulk_density_range": "0.35 - 0.45 g/cm³",
+        "true_skeletal_density_g_cm3": 1.25,
+        "density_usage_note": "Use true density (approx 1.20-1.28 g/cm³) for thermodynamic volume fractions; use bulk density (0.32-0.55 g/cm³) for powder processing and feed rate calculations.",
+        "provenance": "MANUFACTURER-SPEC"
+      },
+      "hansen_solubility_parameters": {
+        "delta_D": 17.55,
+        "delta_P": 3.37,
+        "delta_H": 9.81,
+        "delta_total": 20.39,
+        "interaction_radius_R0": 7.5,
+        "unit": "MPa½",
+        "method_id": "HSP-HVK-01",
+        "provenance": "CALCULATED (HVK Group Contribution)"
+      },
+      "direct_properties_map": {
+        "entity_id": "POL-0006",
+        "name": "PVAP",
+        "repeat_unit_smiles": "*CC(*)OC(=O)c1ccccc1C(=O)O.*CC(*)OC(C)=O",
+        "mw": 55000,
+        "pdi": 2.2,
+        "tg_K": 383.15,
+        "tg_C": 110.0,
+        "bulk_density_g_cm3": 0.4,
+        "true_density_g_cm3": 1.25,
+        "delta_D": 17.55,
+        "delta_P": 3.37,
+        "delta_H": 9.81,
+        "delta_t": 20.39,
+        "R0": 7.5
+      },
+      "monte_carlo_10k_uq_derivation": [
+        {
+          "param_key": "tg_K",
+          "name": "Glass Transition (Tg)",
+          "nominal_base": 383.15,
+          "distribution_type": "Gaussian 10k MC (σ = 2.5 K)",
+          "uncertainty_1sigma": "± 2.5 K",
+          "ci_95": [
+            378.2,
+            388.0
+          ],
+          "ci_95_str": "[378.2, 388.0]",
+          "mc_mean": 383.12,
+          "mc_median": 383.12,
+          "final_value": 383.15,
+          "unit": "K",
+          "method_id": "LIT-POLY-01"
+        },
+        {
+          "param_key": "density_g_cm3",
+          "name": "Bulk / Solid Density (ρ)",
+          "nominal_base": 0.4,
+          "distribution_type": "Gaussian 10k MC (±5.0% 2σ)",
+          "uncertainty_1sigma": "± 0.01 g/cm³",
+          "ci_95": [
+            0.38,
+            0.42
+          ],
+          "ci_95_str": "[0.38, 0.42]",
+          "mc_mean": 0.4,
+          "mc_median": 0.4,
+          "final_value": 0.4,
+          "unit": "g/cm³",
+          "method_id": "MFG-SPEC-01"
+        },
+        {
+          "param_key": "delta_D",
+          "name": "HSP Dispersion (δD)",
+          "nominal_base": 17.55,
+          "distribution_type": "Gaussian 10k MC (σ = 0.77 MPa½)",
+          "uncertainty_1sigma": "± 0.77 MPa½",
+          "ci_95": [
+            16.07,
+            19.03
+          ],
+          "ci_95_str": "[16.07, 19.03]",
+          "mc_mean": 17.56,
+          "mc_median": 17.56,
+          "final_value": 17.55,
+          "unit": "MPa½",
+          "method_id": "HSP-HVK-01"
+        },
+        {
+          "param_key": "delta_P",
+          "name": "HSP Polar (δP)",
+          "nominal_base": 3.37,
+          "distribution_type": "Gaussian 10k MC (σ = 0.77 MPa½)",
+          "uncertainty_1sigma": "± 0.77 MPa½",
+          "ci_95": [
+            1.86,
+            4.88
+          ],
+          "ci_95_str": "[1.86, 4.88]",
+          "mc_mean": 3.36,
+          "mc_median": 3.37,
+          "final_value": 3.37,
+          "unit": "MPa½",
+          "method_id": "HSP-HVK-01"
+        },
+        {
+          "param_key": "delta_H",
+          "name": "HSP Hydrogen-Bond (δH)",
+          "nominal_base": 9.81,
+          "distribution_type": "Gaussian 10k MC (σ = 0.77 MPa½)",
+          "uncertainty_1sigma": "± 0.77 MPa½",
+          "ci_95": [
+            8.32,
+            11.32
+          ],
+          "ci_95_str": "[8.32, 11.32]",
+          "mc_mean": 9.82,
+          "mc_median": 9.82,
+          "final_value": 9.81,
+          "unit": "MPa½",
+          "method_id": "HSP-HVK-01"
+        },
+        {
+          "param_key": "delta_t",
+          "name": "Total Solubility (δt)",
+          "nominal_base": 20.39,
+          "distribution_type": "Propagated 10k MC Norm",
+          "uncertainty_1sigma": "± 0.83 MPa½",
+          "ci_95": [
+            18.93,
+            21.88
+          ],
+          "ci_95_str": "[18.93, 21.88]",
+          "mc_mean": 20.43,
+          "mc_median": 20.44,
+          "final_value": 20.39,
+          "unit": "MPa½",
+          "method_id": "HSP-HVK-01"
+        }
+      ],
+      "quality_control": {
+        "status": "VALID",
+        "data_integrity_status": "PASS",
+        "rules_verified": [
+          "Identity and Grade Specification Attached",
+          "Dry-State Tg within Compendial Bounds",
+          "Bulk and True Densities Disambiguated",
+          "HSP Vector Concordance Displacement < 5.0 MPa½",
+          "Deterministic 10k Monte Carlo Convergence Verified"
+        ]
+      }
+    },
+    {
+      "entity_id": "POL-0007",
+      "library_index": 7,
+      "name": "povidone (pvp)",
+      "display_name": "PVP K30",
+      "abbreviation": "PVP K30",
+      "commercial_grade": "BASF Kollidon® 30",
+      "brand_name": "Kollidon® 30 / Plasdone™ K-29/32",
+      "manufacturer": "BASF SE / Ashland",
+      "chemical_name": "Poly(1-(2-oxo-1-pyrrolidinyl)ethylene) / Polyvinylpyrrolidone",
+      "chemical_family": "Vinylpyrrolidone Homopolymer",
+      "cas_number": "9003-39-8",
+      "pharmacopoeial_standard": "Ph. Eur. / USP / JP Povidone (K-value 27-32)",
+      "monomer_composition": "100% 1-vinyl-2-pyrrolidone homopolymer",
+      "functional_class": "Hydrophilic ASD matrix former / precipitation inhibitor / dissolution enhancer",
+      "chemical_structure": {
+        "repeat_unit_smiles": "*CC(*)N1CCCC1=O",
+        "repeat_unit_mw_g_mol": 111.14,
+        "representation_type": "Canonical BigSMILES/Repeat-Unit with wildcards (*)",
+        "provenance": "Curated Monomer/Copolymer Topology"
+      },
+      "molecular_weight_distribution": {
+        "weight_average_mw_mw_g_mol": 49000,
+        "polydispersity_index_pdi": 4.08,
+        "provenance": "MANUFACTURER-SPEC"
+      },
+      "thermal_properties": {
+        "glass_transition_tg_K": 426.8,
+        "glass_transition_tg_celsius": 153.6,
+        "measurement_uncertainty_K": 2.5,
+        "measurement_state": "Dry State (compendial dry-state midpoint; free of moisture plasticization)",
+        "citation": "PMC7284699 (dry-state DSC Tg 153.6°C / 426.75 K); Alshehri et al. (2020) Pharmaceutics 12(10), 964; BASF Kollidon 30 TDS (true density 1.20 g/cm³, bulk density 0.40-0.45 g/cm³)",
+        "provenance": "LITERATURE"
+      },
+      "density_properties": {
+        "loose_bulk_density_g_cm3": 0.4,
+        "typical_bulk_density_range": "0.35 - 0.50 g/cm³",
+        "true_skeletal_density_g_cm3": 1.2,
+        "density_usage_note": "Use true density (approx 1.20-1.28 g/cm³) for thermodynamic volume fractions; use bulk density (0.32-0.55 g/cm³) for powder processing and feed rate calculations.",
+        "provenance": "MANUFACTURER-SPEC"
+      },
+      "hansen_solubility_parameters": {
+        "delta_D": 20.44,
+        "delta_P": 13.67,
+        "delta_H": 6.86,
+        "delta_total": 25.53,
+        "interaction_radius_R0": 7.5,
+        "unit": "MPa½",
+        "method_id": "HSP-LIT-01",
+        "provenance": "LITERATURE-CURATED (Hansen 2007 / Excipient Monograph)"
+      },
+      "direct_properties_map": {
+        "entity_id": "POL-0007",
+        "name": "PVP K30",
+        "repeat_unit_smiles": "*CC(*)N1CCCC1=O",
+        "mw": 49000,
+        "pdi": 4.08,
+        "tg_K": 426.8,
+        "tg_C": 153.6,
+        "bulk_density_g_cm3": 0.4,
+        "true_density_g_cm3": 1.2,
+        "delta_D": 20.44,
+        "delta_P": 13.67,
+        "delta_H": 6.86,
+        "delta_t": 25.53,
+        "R0": 7.5
+      },
+      "monte_carlo_10k_uq_derivation": [
+        {
+          "param_key": "tg_K",
+          "name": "Glass Transition (Tg)",
+          "nominal_base": 426.8,
+          "distribution_type": "Gaussian 10k MC (σ = 2.5 K)",
+          "uncertainty_1sigma": "± 2.5 K",
+          "ci_95": [
+            421.9,
+            431.6
+          ],
+          "ci_95_str": "[421.9, 431.6]",
+          "mc_mean": 426.77,
+          "mc_median": 426.77,
+          "final_value": 426.8,
+          "unit": "K",
+          "method_id": "LIT-POLY-01"
+        },
+        {
+          "param_key": "density_g_cm3",
+          "name": "Bulk / Solid Density (ρ)",
+          "nominal_base": 0.4,
+          "distribution_type": "Gaussian 10k MC (±5.0% 2σ)",
+          "uncertainty_1sigma": "± 0.01 g/cm³",
+          "ci_95": [
+            0.38,
+            0.42
+          ],
+          "ci_95_str": "[0.38, 0.42]",
+          "mc_mean": 0.4,
+          "mc_median": 0.4,
+          "final_value": 0.4,
+          "unit": "g/cm³",
+          "method_id": "MFG-SPEC-01"
+        },
+        {
+          "param_key": "delta_D",
+          "name": "HSP Dispersion (δD)",
+          "nominal_base": 20.44,
+          "distribution_type": "Gaussian 10k MC (σ = 0.77 MPa½)",
+          "uncertainty_1sigma": "± 0.77 MPa½",
+          "ci_95": [
+            18.96,
+            21.92
+          ],
+          "ci_95_str": "[18.96, 21.92]",
+          "mc_mean": 20.45,
+          "mc_median": 20.45,
+          "final_value": 20.44,
+          "unit": "MPa½",
+          "method_id": "HSP-HVK-01"
+        },
+        {
+          "param_key": "delta_P",
+          "name": "HSP Polar (δP)",
+          "nominal_base": 13.67,
+          "distribution_type": "Gaussian 10k MC (σ = 0.77 MPa½)",
+          "uncertainty_1sigma": "± 0.77 MPa½",
+          "ci_95": [
+            12.16,
+            15.18
+          ],
+          "ci_95_str": "[12.16, 15.18]",
+          "mc_mean": 13.66,
+          "mc_median": 13.67,
+          "final_value": 13.67,
+          "unit": "MPa½",
+          "method_id": "HSP-HVK-01"
+        },
+        {
+          "param_key": "delta_H",
+          "name": "HSP Hydrogen-Bond (δH)",
+          "nominal_base": 6.86,
+          "distribution_type": "Gaussian 10k MC (σ = 0.77 MPa½)",
+          "uncertainty_1sigma": "± 0.77 MPa½",
+          "ci_95": [
+            5.37,
+            8.37
+          ],
+          "ci_95_str": "[5.37, 8.37]",
+          "mc_mean": 6.87,
+          "mc_median": 6.87,
+          "final_value": 6.86,
+          "unit": "MPa½",
+          "method_id": "HSP-HVK-01"
+        },
+        {
+          "param_key": "delta_t",
+          "name": "Total Solubility (δt)",
+          "nominal_base": 25.53,
+          "distribution_type": "Propagated 10k MC Norm",
+          "uncertainty_1sigma": "± 0.83 MPa½",
+          "ci_95": [
+            24.05,
+            27.02
+          ],
+          "ci_95_str": "[24.05, 27.02]",
+          "mc_mean": 25.56,
+          "mc_median": 25.56,
+          "final_value": 25.53,
+          "unit": "MPa½",
+          "method_id": "HSP-HVK-01"
+        }
+      ],
+      "quality_control": {
+        "status": "VALID",
+        "data_integrity_status": "PASS",
+        "rules_verified": [
+          "Identity and Grade Specification Attached",
+          "Dry-State Tg within Compendial Bounds",
+          "Bulk and True Densities Disambiguated",
+          "HSP Vector Concordance Displacement < 5.0 MPa½",
+          "Deterministic 10k Monte Carlo Convergence Verified"
+        ]
+      }
+    },
+    {
+      "entity_id": "POL-0008",
+      "library_index": 8,
+      "name": "copovidone (pvp-va 64)",
+      "display_name": "PVPVA 64",
+      "abbreviation": "PVP-VA 64",
+      "commercial_grade": "BASF Kollidon® VA 64 (Copovidone)",
+      "brand_name": "Kollidon® VA 64 / Plasdone™ S-630",
+      "manufacturer": "BASF SE / Ashland",
+      "chemical_name": "Poly(1-vinylpyrrolidone-co-vinyl acetate) 60:40",
+      "chemical_family": "Vinylpyrrolidone - Vinyl Acetate Copolymer",
+      "cas_number": "25086-89-9",
+      "pharmacopoeial_standard": "Ph. Eur. / USP / JP Copovidone",
+      "monomer_composition": "60:40 mass ratio (approx 4:3 molar ratio) N-vinylpyrrolidone : vinyl acetate",
+      "functional_class": "Hot-melt extrusion matrix / spray drying carrier / high-capacity ASD stabilizer",
+      "chemical_structure": {
+        "repeat_unit_smiles": "*CC(*)N1CCCC1=O.*CC(*)OC(=O)C",
+        "repeat_unit_mw_g_mol": 101.12,
+        "representation_type": "Canonical BigSMILES/Repeat-Unit with wildcards (*)",
+        "provenance": "Curated Monomer/Copolymer Topology"
+      },
+      "molecular_weight_distribution": {
+        "weight_average_mw_mw_g_mol": 57500,
+        "polydispersity_index_pdi": 3.48,
+        "provenance": "MANUFACTURER-SPEC"
+      },
+      "thermal_properties": {
+        "glass_transition_tg_K": 378.15,
+        "glass_transition_tg_celsius": 105.0,
+        "measurement_uncertainty_K": 2.5,
+        "measurement_state": "Dry State (compendial dry-state midpoint; free of moisture plasticization)",
+        "citation": "BASF Technical Information: Kollidon VA 64 (Tg 105°C, true density 1.20 g/cm³, bulk 0.28-0.38 g/cm³); VIVAPHARM PVP/VA documentation",
+        "provenance": "LITERATURE"
+      },
+      "density_properties": {
+        "loose_bulk_density_g_cm3": 0.32,
+        "typical_bulk_density_range": "0.28 - 0.38 g/cm³",
+        "true_skeletal_density_g_cm3": 1.2,
+        "density_usage_note": "Use true density (approx 1.20-1.28 g/cm³) for thermodynamic volume fractions; use bulk density (0.32-0.55 g/cm³) for powder processing and feed rate calculations.",
+        "provenance": "MANUFACTURER-SPEC"
+      },
+      "hansen_solubility_parameters": {
+        "delta_D": 19.5,
+        "delta_P": 11.2,
+        "delta_H": 7.8,
+        "delta_total": 23.81,
+        "interaction_radius_R0": 7.5,
+        "unit": "MPa½",
+        "method_id": "HSP-LIT-01",
+        "provenance": "LITERATURE-CURATED (Hansen 2007 / Excipient Monograph)"
+      },
+      "direct_properties_map": {
+        "entity_id": "POL-0008",
+        "name": "PVPVA 64",
+        "repeat_unit_smiles": "*CC(*)N1CCCC1=O.*CC(*)OC(=O)C",
+        "mw": 57500,
+        "pdi": 3.48,
+        "tg_K": 378.15,
+        "tg_C": 105.0,
+        "bulk_density_g_cm3": 0.32,
+        "true_density_g_cm3": 1.2,
+        "delta_D": 19.5,
+        "delta_P": 11.2,
+        "delta_H": 7.8,
+        "delta_t": 23.81,
+        "R0": 7.5
+      },
+      "monte_carlo_10k_uq_derivation": [
+        {
+          "param_key": "tg_K",
+          "name": "Glass Transition (Tg)",
+          "nominal_base": 378.15,
+          "distribution_type": "Gaussian 10k MC (σ = 2.5 K)",
+          "uncertainty_1sigma": "± 2.5 K",
+          "ci_95": [
+            373.2,
+            383.0
+          ],
+          "ci_95_str": "[373.2, 383.0]",
+          "mc_mean": 378.12,
+          "mc_median": 378.12,
+          "final_value": 378.15,
+          "unit": "K",
+          "method_id": "LIT-POLY-01"
+        },
+        {
+          "param_key": "density_g_cm3",
+          "name": "Bulk / Solid Density (ρ)",
+          "nominal_base": 0.32,
+          "distribution_type": "Gaussian 10k MC (±5.0% 2σ)",
+          "uncertainty_1sigma": "± 0.008 g/cm³",
+          "ci_95": [
+            0.304,
+            0.336
+          ],
+          "ci_95_str": "[0.304, 0.336]",
+          "mc_mean": 0.32,
+          "mc_median": 0.32,
+          "final_value": 0.32,
+          "unit": "g/cm³",
+          "method_id": "MFG-SPEC-01"
+        },
+        {
+          "param_key": "delta_D",
+          "name": "HSP Dispersion (δD)",
+          "nominal_base": 19.5,
+          "distribution_type": "Gaussian 10k MC (σ = 0.77 MPa½)",
+          "uncertainty_1sigma": "± 0.77 MPa½",
+          "ci_95": [
+            18.02,
+            20.98
+          ],
+          "ci_95_str": "[18.02, 20.98]",
+          "mc_mean": 19.51,
+          "mc_median": 19.51,
+          "final_value": 19.5,
+          "unit": "MPa½",
+          "method_id": "HSP-HVK-01"
+        },
+        {
+          "param_key": "delta_P",
+          "name": "HSP Polar (δP)",
+          "nominal_base": 11.2,
+          "distribution_type": "Gaussian 10k MC (σ = 0.77 MPa½)",
+          "uncertainty_1sigma": "± 0.77 MPa½",
+          "ci_95": [
+            9.69,
+            12.71
+          ],
+          "ci_95_str": "[9.69, 12.71]",
+          "mc_mean": 11.19,
+          "mc_median": 11.2,
+          "final_value": 11.2,
+          "unit": "MPa½",
+          "method_id": "HSP-HVK-01"
+        },
+        {
+          "param_key": "delta_H",
+          "name": "HSP Hydrogen-Bond (δH)",
+          "nominal_base": 7.8,
+          "distribution_type": "Gaussian 10k MC (σ = 0.77 MPa½)",
+          "uncertainty_1sigma": "± 0.77 MPa½",
+          "ci_95": [
+            6.31,
+            9.31
+          ],
+          "ci_95_str": "[6.31, 9.31]",
+          "mc_mean": 7.81,
+          "mc_median": 7.81,
+          "final_value": 7.8,
+          "unit": "MPa½",
+          "method_id": "HSP-HVK-01"
+        },
+        {
+          "param_key": "delta_t",
+          "name": "Total Solubility (δt)",
+          "nominal_base": 23.81,
+          "distribution_type": "Propagated 10k MC Norm",
+          "uncertainty_1sigma": "± 0.83 MPa½",
+          "ci_95": [
+            22.32,
+            25.29
+          ],
+          "ci_95_str": "[22.32, 25.29]",
+          "mc_mean": 23.83,
+          "mc_median": 23.84,
+          "final_value": 23.81,
+          "unit": "MPa½",
+          "method_id": "HSP-HVK-01"
+        }
+      ],
+      "quality_control": {
+        "status": "VALID",
+        "data_integrity_status": "PASS",
+        "rules_verified": [
+          "Identity and Grade Specification Attached",
+          "Dry-State Tg within Compendial Bounds",
+          "Bulk and True Densities Disambiguated",
+          "HSP Vector Concordance Displacement < 5.0 MPa½",
+          "Deterministic 10k Monte Carlo Convergence Verified"
+        ]
+      }
+    },
+    {
+      "entity_id": "POL-008-2026",
+      "name": "Hypromellose Acetate Succinate",
+      "display_name": "Hypromellose Acetate Succinate (HPMC_AS)",
+      "abbreviation": "HPMC_AS",
+      "chemical_family": "Cellulosic",
+      "functional_class": "Neutral",
+      "cas_number": "71138-97-1",
+      "chemical_structure": {
+        "repeat_unit_smiles": "C1CCN(C1=O)C=C",
+        "polymerized_backbone_smiles": "*CC(*)N1CCCC1=O",
+        "formula": "C6H9NO",
+        "repeat_unit_mw_g_mol": 111.14,
+        "provenance": "USER_PROVIDED"
+      },
+      "thermal_properties": {
+        "glass_transition_tg_K": 441.15,
+        "glass_transition_tg_celsius": 168.0,
+        "measurement_uncertainty_K": 2.5,
+        "citation": "User Supplied Experimental Tg (441.15 K / 168.0 °C)",
+        "provenance": "USER_PROVIDED"
+      },
+      "density_properties": {
+        "bulk_density_g_cm3": 1.2,
+        "true_density_g_cm3": 1.2,
+        "density_note": "User specified 1.20 g/cm³; reflects true skeletal density benchmark.",
+        "provenance": "USER_PROVIDED"
+      },
+      "hansen_solubility_parameters": {
+        "delta_D": 17.4,
+        "delta_P": 8.2,
+        "delta_H": 11.7,
+        "delta_total": 22.51,
+        "interaction_radius_R0": 7.5,
+        "unit": "MPa½",
+        "provenance": "USER_PROVIDED (H-V-K)"
+      },
+      "direct_properties_map": {
+        "entity_id": "POL-008-2026",
+        "name": "Hypromellose Acetate Succinate",
+        "abbreviation": "HPMC_AS",
+        "chemical_family": "Cellulosic",
+        "functional_class": "Neutral",
+        "repeat_unit_smiles": "C1CCN(C1=O)C=C",
+        "tg_K": 441.15,
+        "tg_C": 168.0,
+        "bulk_density_g_cm3": 1.2,
+        "true_density_g_cm3": 1.2,
+        "delta_D": 17.4,
+        "delta_P": 8.2,
+        "delta_H": 11.7,
+        "delta_t": 22.51,
+        "R0": 7.5
+      },
+      "monte_carlo_10k_uq_derivation": [
+        {
+          "param_key": "tg_K",
+          "name": "Glass Transition (Tg)",
+          "nominal_base": 441.15,
+          "distribution_type": "Gaussian 10k MC (σ = 2.5 K)",
+          "uncertainty_1sigma": "± 2.5 K",
+          "ci_95": [
+            436.2,
+            446.0
+          ],
+          "ci_95_str": "[436.2, 446.0]",
+          "mc_mean": 441.12,
+          "mc_median": 441.12,
+          "final_value": 441.15,
+          "unit": "K",
+          "method_id": "LIT-POLY-01"
+        },
+        {
+          "param_key": "density_g_cm3",
+          "name": "Bulk / Solid Density (ρ)",
+          "nominal_base": 1.2,
+          "distribution_type": "Gaussian 10k MC (±5.0% 2σ)",
+          "uncertainty_1sigma": "± 0.031 g/cm³",
+          "ci_95": [
+            1.14,
+            1.259
+          ],
+          "ci_95_str": "[1.14, 1.259]",
+          "mc_mean": 1.2,
+          "mc_median": 1.2,
+          "final_value": 1.2,
+          "unit": "g/cm³",
+          "method_id": "MFG-SPEC-01"
+        },
+        {
+          "param_key": "delta_D",
+          "name": "HSP Dispersion (δD)",
+          "nominal_base": 17.4,
+          "distribution_type": "Gaussian 10k MC (σ = 0.77 MPa½)",
+          "uncertainty_1sigma": "± 0.77 MPa½",
+          "ci_95": [
+            15.92,
+            18.88
+          ],
+          "ci_95_str": "[15.92, 18.88]",
+          "mc_mean": 17.41,
+          "mc_median": 17.41,
+          "final_value": 17.4,
+          "unit": "MPa½",
+          "method_id": "HSP-HVK-01"
+        },
+        {
+          "param_key": "delta_P",
+          "name": "HSP Polar (δP)",
+          "nominal_base": 8.2,
+          "distribution_type": "Gaussian 10k MC (σ = 0.77 MPa½)",
+          "uncertainty_1sigma": "± 0.77 MPa½",
+          "ci_95": [
+            6.69,
+            9.71
+          ],
+          "ci_95_str": "[6.69, 9.71]",
+          "mc_mean": 8.19,
+          "mc_median": 8.2,
+          "final_value": 8.2,
+          "unit": "MPa½",
+          "method_id": "HSP-HVK-01"
+        },
+        {
+          "param_key": "delta_H",
+          "name": "HSP Hydrogen-Bond (δH)",
+          "nominal_base": 11.7,
+          "distribution_type": "Gaussian 10k MC (σ = 0.77 MPa½)",
+          "uncertainty_1sigma": "± 0.77 MPa½",
+          "ci_95": [
+            10.21,
+            13.21
+          ],
+          "ci_95_str": "[10.21, 13.21]",
+          "mc_mean": 11.71,
+          "mc_median": 11.71,
+          "final_value": 11.7,
+          "unit": "MPa½",
+          "method_id": "HSP-HVK-01"
+        },
+        {
+          "param_key": "delta_t",
+          "name": "Total Solubility (δt)",
+          "nominal_base": 22.51,
+          "distribution_type": "Propagated 10k MC Norm",
+          "uncertainty_1sigma": "± 0.83 MPa½",
+          "ci_95": [
+            21.03,
+            24.0
+          ],
+          "ci_95_str": "[21.03, 24.0]",
+          "mc_mean": 22.55,
+          "mc_median": 22.56,
+          "final_value": 22.51,
+          "unit": "MPa½",
+          "method_id": "HSP-HVK-01"
+        }
+      ],
+      "quality_control": {
+        "status": "VALID",
+        "data_integrity_status": "PASS",
+        "notes": [
+          "All user mandatory parameters preserved with 100% exact fidelity",
+          "Tg conversion 441.15 K = 168.0 °C verified",
+          "HSP vector norm (17.4^2 + 8.2^2 + 11.7^2)^0.5 = 22.51 MPa½ derived"
+        ]
+      }
+    }
+  ]
+}

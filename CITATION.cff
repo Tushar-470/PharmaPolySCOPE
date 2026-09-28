@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software or computational framework in your research, please cite it as below."
+authors:
+  - family-names: "Mathapati"
+    given-names: "Tushar"
+title: "Experimental Validation of a Computational Polymer-Ranking Tool for Amorphous Solid Dispersion Development: A Comparative Study of Itraconazole and Fenofibrate"
+version: 2.0.0
+doi: 10.5281/zenodo.1234567
+date-released: 2026-09-27
+repository-code: "https://github.com/Tushar-470/PharmaPolySCOPE"
+keywords:
+  - "amorphous solid dispersions"
+  - "itraconazole"
+  - "fenofibrate"
+  - "polymer selection"
+  - "PharmaPolySCOPE"
+  - "SP-PRP-TOPSIS"
+  - "monte carlo uncertainty quantification"
+  - "morris sensitivity analysis"

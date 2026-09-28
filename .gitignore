@@ -1,0 +1,62 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# Logs and outputs (Tracked for permanent research backup)
+# data/external/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Web and Frontend runtime
+node_modules/
+frontend/node_modules/
+frontend/dist/
+data/analyses/
+data/analysis_history.db
+logs/*.log
+
+# Local environment & secrets
+.env
+.env.*
+
+# Agent workspace state
+.gemini/
+
+# User research data (untracked local benchmark sweeps, except finalized core drugs)
+data/user_drugs/drg-*.json
+!data/user_drugs/drg-0001.json
+!data/user_drugs/drg-0002.json
